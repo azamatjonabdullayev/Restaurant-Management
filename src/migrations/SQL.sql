@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS staff (
   id UUID PRIMARY KEY,
   full_name VARCHAR(100) NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
-  password VARCHAR(100) NOT NULL,
   role VARCHAR(20) CHECK (role IN ('admin', 'manager', 'waiter')) NOT NULL DEFAULT 'waiter',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
