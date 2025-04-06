@@ -7,8 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
+app.use((err, req, res, next) => {
+  res.status(err, err_status || 500).json({ mesage: err.message });
+});
 
 const initServer = async () => {
   try {
